@@ -1,0 +1,17 @@
+steam-chat.com
+steamcdn-a.akamaihd.net
+steamcommunity.com
+www.steamcommunity.com
+media.steampowered.com
+store.steampowered.com
+api.steampowered.com
+help.steampowered.com
+login.steampowered.com
+checkout.steampowered.com
+cdn.cloudflare.steamstatic.com
+cdn.akamai.steamstatic.com
+community.akamai.steamstatic.com
+avatars.akamai.steamstatic.com
+community.steamstatic.com
+store.akamai.steamstatic.com
+steamcommunity-a.akamaihd.net

@@ -1,0 +1,59 @@
+name: DNS_RESOLVE
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      cidr:
+        description: "CIDR for the target area"
+        required: true
+        default: '127.0.0.0/8'
+      server:
+        description: "DoH Server (Must support ECS)"
+        required: true
+        default: 'https://dns.google/dns-query'
+      output:
+        description: "output file"
+        required: true
+        default: './hosts'
+
+jobs:
+  run:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run script
+        run: python dns_resolve.py -c ${{ github.event.inputs.cidr }} -s ${{ github.event.inputs.server }} -o ${{ github.event.inputs.output }}
+
+      - name: Commit Changes
+        id: commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 🚀 CI Updated
+
+      - name: GitHub Push
+        if: steps.commit.outputs.changes_detected == 'true'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          branch: ${{github.ref}}
+
+      - name: Delete Workflow Runs
+        uses: Mattraks/delete-workflow-runs@v2
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          repository: ${{ github.repository }}
+          retain_days: 1
+          keep_minimum_runs: 1
