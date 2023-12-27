@@ -1,6 +1,6 @@
 # Steam Hosts
 ![Python Version](https://img.shields.io/badge/Python-3%2B-blue?)
-![Build Status](https://img.shields.io/github/actions/workflow/status/fordes123/steam_hosts/auto_update.yml?branch=main)
+![Build Status](https://img.shields.io/github/actions/workflow/status/fordes123/steam_hosts/dns_resolve.yml?branch=main) 
 
 利用 Github Action 通过 ECS DNS 解析，自动更新适合不同区域的 Steam Hosts 文件
 
