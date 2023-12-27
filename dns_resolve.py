@@ -26,10 +26,13 @@ def resolve(domain):
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-c', '--cidr', default='127.0.0.0/8', help='CIDR for the target area')
-    parser.add_argument('-s', '--server', default='https://dns.google/dns-query', help='DoH Server (Must support ECS)')
-    parser.add_argument('-o', '--output', default='./hosts', help='output file')
-    parser.add_argument('-d', '--domains', default='./domains.txt', help='domain list file')
+    parser.add_argument('-c', '--cidr', default='127.0.0.0/8', const='127.0.0.0/8', nargs='?',
+                        help='CIDR for the target area')
+    parser.add_argument('-s', '--server', default='https://dns.google/dns-query', const='https://dns.google/dns-query',
+                        nargs='?', help='DoH Server (Must support ECS)', required=False)
+    parser.add_argument('-o', '--output', default='./hosts', const='./hosts', nargs='?', help='output file', )
+    parser.add_argument('-d', '--domains', default='./domains.txt', const='./domains.txt', nargs='?',
+                        help='domain list file', required=False)
     return parser.parse_args()
 
 
