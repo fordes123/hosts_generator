@@ -9,9 +9,9 @@
 将生成的 Hosts 文件加入系统的 Hosts 中，或者将 [🔗文件链接](https://raw.githubusercontent.com/fordes123/steam_hosts/main/hosts) 加入 AdGuard Home DNS 黑名单中
 (⚠️ 另需在 AdGuard Home `DNS 服务配置` > `拦截模式` 中选择 `默认`)  
 
-> PS: 如果你使用本仓库提供的 Hosts 文件，需要注意以下为本仓库的默认配置，它可能不适用于你的网络环境:  
+> ~~PS: 如果你使用本仓库提供的 Hosts 文件，需要注意以下为本仓库的默认配置，它可能不适用于你的网络环境:  
 > ECS CIDR: `127.0.0.0/8`  
-> DNS 服务器: `https://dns.google/dns-query` (Google Public DNS over HTTPS)
+> DNS 服务器: `https://dns.google/dns-query` (Google Public DNS over HTTPS)~~
 
 ## 快速开始
 

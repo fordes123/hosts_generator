@@ -1,4 +1,4 @@
-dnspython
+dnspython[doh]
 tqdm
 ipaddress
 httpx
