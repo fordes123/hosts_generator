@@ -1,28 +1,27 @@
-# Steam Hosts
+# Hosts Generator
 ![Python Version](https://img.shields.io/badge/Python-3%2B-blue?)
-![Build Status](https://img.shields.io/github/actions/workflow/status/fordes123/steam_hosts/dns_resolve.yml?branch=main) 
+![Build Status](https://img.shields.io/github/actions/workflow/status/fordes123/hosts_generator/dns_resolve.yml?branch=main) 
 
-利用 Github Action 通过 ECS DNS 解析，自动更新适合不同区域的 Steam Hosts 文件
+一个简单的 Python 脚本，通过向指定的 DoH 服务器发起 ECS DNS 解析请求，构建适合不同区域的 Hosts 文件。
+通过 Github Action 托管，可简单解决部分地区对特定网站的 DNS 污染以实现直连。
 
 ## 如何使用
 
-将生成的 Hosts 文件加入系统的 Hosts 中，或者将 [🔗文件链接](https://raw.githubusercontent.com/fordes123/steam_hosts/main/hosts) 加入 AdGuard Home DNS 黑名单中
-(⚠️ 另需在 AdGuard Home `DNS 服务配置` > `拦截模式` 中选择 `默认`)  
+将生成的 hosts 文件加入系统的 hosts 中，或者将文件链接 加入 AdGuard Home DNS 黑名单中
+(另需在`DNS 服务配置` > `拦截模式` 中选择 `默认`)  
 
-> ~~PS: 如果你使用本仓库提供的 Hosts 文件，需要注意以下为本仓库的默认配置，它可能不适用于你的网络环境:  
-> ECS CIDR: `127.0.0.0/8`  
-> DNS 服务器: `https://dns.google/dns-query` (Google Public DNS over HTTPS)~~
+> ⚠️ 请勿使用本仓库内的 hosts 文件，它是用于测试且过时的，如有需要请参考下方说明自行构建  
 
 ## 快速开始
 
 1. 克隆仓库
 ```bash
-git clone https://github.com/fordes123/steam_hosts.git
+git clone https://github.com/fordes123/hosts_generator.git
 ```
 
 2. 安装依赖项
 ```bash
-cd steam_hosts
+cd hosts_generator
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
